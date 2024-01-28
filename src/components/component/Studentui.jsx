@@ -3,6 +3,7 @@
  * @see https://v0.dev/t/Vuc2uhVhuIR
  */
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
+import { DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ResponsiveLine } from "@nivo/line"
@@ -23,6 +24,7 @@ import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 import { useRef } from "react"
+import { Link } from "react-router-dom"
 
 export default function Studentui() {
    
@@ -93,7 +95,7 @@ export default function Studentui() {
               <div className="flex flex-col justify-start gap-6 mt-8"  ref={links}>
 
             <a 
-              className=" px-3 py-2 rounded flex items-center gap-2 dark:hover:bg-gray-700 text-white"
+              className="flex items-center gap-2 px-3 py-2 text-white rounded dark:hover:bg-gray-700"
               href="#studentdetails"
              
               >
@@ -103,7 +105,7 @@ export default function Studentui() {
               
             </a>
             <a
-              className=" px-3 py-2 rounded flex items-center gap-2 dark:hover:bg-gray-700 text-white"
+              className="flex items-center gap-2 px-3 py-2 text-white rounded dark:hover:bg-gray-700"
               href="#completedcourses"
               
               >
@@ -113,7 +115,7 @@ export default function Studentui() {
             </a>
             
             <a
-              className=" px-3 py-2 rounded flex items-center gap-2 dark:hover:bg-gray-700 text-white"
+              className="flex items-center gap-2 px-3 py-2 text-white rounded dark:hover:bg-gray-700"
               href="#upcomingassessments"
               
               >
@@ -125,7 +127,7 @@ export default function Studentui() {
                  
            
             <a
-              className=" px-3 py-2 rounded flex items-center gap-2 dark:hover:bg-gray-700 text-white"
+              className="flex items-center gap-2 px-3 py-2 text-white rounded dark:hover:bg-gray-700"
               href="#analyticsboard"
               
               >
@@ -139,29 +141,52 @@ export default function Studentui() {
           </div>
 
           
-            
-            
-          
-          
-          
-         
-         
+        
         </aside>
        
 
         <main className="flex-1 p-4 overflow-auto bg-[#fff] text-[#040404]">
           <header
-             className="flex items-center h-16  mb-8 dark:bg-gray-900">
+             className="flex items-center h-16 mb-8 dark:bg-gray-900">
              <nav className="flex items-center justify-between w-full">
               <div className="flex items-center space-x-4">
             {/* <LayoutDashboardIcon className="w-6 h-6" /> */}
             <span className="text-xl font-semibold px-32 py-2 bg-[#040404] text-[#B3CCC2] rounded-md ">Student Dashboard</span>
             
            </div>
-              <Avatar className="h-9 w-9">
-            <AvatarImage alt="User avatar" src="https://imgs.search.brave.com/J0ixr3aHGA8aitBrET8u4exc5KcrQl8PWXGrvAdsUY4/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mcmVl/c3ZnLm9yZy9pbWcv/YWJzdHJhY3QtdXNl/ci1mbGF0LTQucG5n" />
-            {/* <AvatarFallback>JD</AvatarFallback> */}
-           </Avatar>
+
+
+           <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+        <Avatar className="h-9 w-9">
+        <AvatarImage alt="User avatar" src="https://imgs.search.brave.com/J0ixr3aHGA8aitBrET8u4exc5KcrQl8PWXGrvAdsUY4/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mcmVl/c3ZnLm9yZy9pbWcv/YWJzdHJhY3QtdXNl/ci1mbGF0LTQucG5n" />
+        {/* <AvatarFallback>JD</AvatarFallback> */}
+       </Avatar>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <a className="flex items-center gap-2" href="#">
+              <UserIcon className="w-4 h-4" />
+              John Doe
+            </a>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <a className="flex items-center gap-2" href="#">
+              <MailIcon className="w-4 h-4" />
+              ums@gmail.com
+            </a>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <a className="flex items-center gap-2" href="#">
+              <LogOutIcon className="w-4 h-4" />
+              Logout
+            </a>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu> 
+
           </nav>
          </header>
           <section className="mb-8" id="studentdetails" ref={CardRef}>
@@ -171,31 +196,27 @@ export default function Studentui() {
             <Card className="p-2 bg-[#ECF0F1] shadow-lg flex justify-between items-center">
               <div>
               <CardHeader>
-                <CardTitle>Mohammad Kaif</CardTitle>
+                <CardTitle>John Doe</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid gap-1">
                   <div><span className="text-[#111129] font-bold">Registered ID</span>: CS102</div>
-                  <div><span className="text-[#111129] font-bold">Mail ID</span>: kaifata31@gmail.com</div>
+                  <div><span className="text-[#111129] font-bold">Mail ID</span>: ums@gmail.com</div>
                 </div>
               </CardContent>
               </div>
               <div className="w-[100px] h-[100px] mx-20">
                 <img  src="https://imgs.search.brave.com/J0ixr3aHGA8aitBrET8u4exc5KcrQl8PWXGrvAdsUY4/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mcmVl/c3ZnLm9yZy9pbWcv/YWJzdHJhY3QtdXNl/ci1mbGF0LTQucG5n" alt="" />
               </div>
-             
             </Card>
-           
-            
           </div>
-
           </section>
 
     <section className="mb-8" id="completedcourses">
       <h2 className="mb-2 text-2xl font-bold">Class Rooms</h2>
 
            
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper py-3 px-3"
+      <Swiper navigation={true} modules={[Navigation]} className="px-3 py-3 mySwiper"
        slidesPerView={3}
        spaceBetween={30}
        ref={classroomRef}
@@ -207,10 +228,9 @@ export default function Studentui() {
             <CardTitle>{card.title}</CardTitle>
             <CardDescription>{card.description}</CardDescription>
           </CardHeader>
-          <Button className="mt-4 bg-[#040404] text-[#B3CCC2] hover:bg-[#B3CCC2] hover:text-[#040404]">View Details</Button>
+          <Link to="/detailspage"><Button className="mt-4 bg-[#040404] text-[#B3CCC2] hover:bg-[#B3CCC2] hover:text-[#040404]">View Details</Button></Link>
         </Card>
     </SwiperSlide>
-
       ))}
          
       </Swiper>
@@ -220,7 +240,7 @@ export default function Studentui() {
             <h2 className="mb-2 text-2xl font-bold">Upcoming Assessments</h2>
            
            
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper py-3 px-3"
+      <Swiper navigation={true} modules={[Navigation]} className="px-3 py-3 mySwiper"
        slidesPerView={3}
        spaceBetween={30}
        ref={assessmentref}
@@ -234,7 +254,8 @@ export default function Studentui() {
               <CardDescription>{card.description}</CardDescription>
             </CardHeader>
             <br />
-            <Button className="  bg-[#040404] text-[#B3CCC2] hover:bg-[#B3CCC2] hover:text-[#040404]">Start</Button>
+            <Link to='/instructionpage'> <Button className="  bg-[#040404] text-[#B3CCC2] hover:bg-[#B3CCC2] hover:text-[#040404]">Start</Button></Link>
+           
           </Card>
         </SwiperSlide>
       ))}
@@ -246,7 +267,7 @@ export default function Studentui() {
 
          
       <div className="flex gap-7" ref={leaderboardRef}>
-         <section className="mb-6 flex-1" id="analyticsboard">
+         <section className="flex-1 mb-6" id="analyticsboard">
           <div className="flex gap-9">
             <h2 className="mb-2 text-2xl font-bold">Analytics Board</h2>
           
@@ -260,7 +281,7 @@ export default function Studentui() {
             <LineChart className="w-full h-[300px]" />
           </div>
         </section>
-        <section className="mb-8 flex-1" id="leaderboard">
+        <section className="flex-1 mb-8" id="leaderboard">
           <div className="flex gap-9">
             <h2 className="mb-2 text-2xl font-bold">Leader Board</h2>
           
@@ -291,6 +312,11 @@ export default function Studentui() {
                   <TableCell>Bob smith </TableCell>
                   <TableCell className="text-right">80</TableCell>
                 </TableRow>
+                <TableRow>
+                <TableCell>4</TableCell>
+                <TableCell>John Smith </TableCell>
+                <TableCell className="text-right">70</TableCell>
+              </TableRow>
               </TableBody>
             </Table>
             <Button className="mt-4  bg-[#040404] text-[#B3CCC2] hover:bg-[#B3CCC2] hover:text-[#040404] mx-auto md:ml-auto">View More</Button>
@@ -540,5 +566,67 @@ function LineChart(props) {
         }}
         role="application" />
     </div>)
+  );
+}
+
+
+function UserIcon(props) {
+  return (
+    (<svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round">
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </svg>)
+  );
+}
+
+
+function MailIcon(props) {
+  return (
+    (<svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round">
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>)
+  );
+}
+
+
+
+function LogOutIcon(props) {
+  return (
+    (<svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round">
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+      <polyline points="16 17 21 12 16 7" />
+      <line x1="21" x2="9" y1="12" y2="12" />
+    </svg>)
   );
 }
